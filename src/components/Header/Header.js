@@ -15,6 +15,7 @@ const Header = () => {
      }
 
 
+
      return (
           <nav className="w-full bg-purple-500 shadow">
                <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
@@ -127,18 +128,17 @@ const Header = () => {
                                                   <div className="dropdown dropdown-end">
                                                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                                             <div className="w-12 rounded-full">
-                                                                 {
-                                                                      user?.photoURL ?
-                                                                           <img src={user?.photoURL} className='mb-1' />
+                                                                 {user?.photoURL ?
+                                                                      <><img src={user?.photoURL} className='mb-1' /></>
 
-                                                                           :
+                                                                      :
 
-                                                                           // <img src="https://placeimg.com/80/80/people" className='mb-1' />
-                                                                           ''
+                                                                      <> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt-F5GQg8qB2fWquF1ltQvAT2Z8Dv5pJLb9w&usqp=CAU" className='mb-1' />
+                                                                      </>
                                                                  }
                                                             </div>
                                                        </label>
-                                                       <ul tabIndex={0} className="menu menu-compact text-white dropdown-content mt-3 p-2 shadow bg-purple-400 rounded-box w-52">
+                                                       <ul tabIndex={0} className="menu menu-compact text-white dropdown-content mt-3 p-2 shadow bg-purple-400 rounded-box w-64">
                                                             <li>
                                                                  <a className="justify-between">
 
@@ -152,12 +152,7 @@ const Header = () => {
                                                                                 </span>
 
                                                                                 :
-
-                                                                                <p>Anonymous<br />
-
-                                                                                     <span>please log in</span> </p>
-
-
+                                                                                ' '
                                                                       }
 
                                                                  </a>

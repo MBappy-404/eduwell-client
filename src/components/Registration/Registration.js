@@ -6,14 +6,16 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 const Registration = () => {
-     const { createUser } = useContext(AuthContext);
+     const { createUser,providerLogin,updateUserProfile } = useContext(AuthContext);
      const navigate = useNavigate();
      const [error, setError] = useState([]);
-     const MySwal = withReactContent(Swal)
+     const MySwal = withReactContent(Swal);
+     const googleProvider = new GoogleAuthProvider();
 
      const handleSubmit = (e) => {
           e.preventDefault();
           const form = e.target;
+           const name = form.username.value;
           const email = form.email.value;
           const password = form.password.value;
 
@@ -29,9 +31,10 @@ const Registration = () => {
                     console.log(user);
                     form.reset();
                     setError('');
+                    handleUpdateUserProfile(name);
                     MySwal.fire({
-                         title: 'Log in Success',
-                         text: 'Now you can Book hotel room, Happy honeymoon',
+                         title: 'Registration Success',
+                         text: '',
                          icon: 'success',
                          confirmButtonText: 'Ok'
                        });
@@ -45,8 +48,7 @@ const Registration = () => {
                })
      };
 
-     const { providerLogin } = useContext(AuthContext);
-     const googleProvider = new GoogleAuthProvider();
+   
 
      const handleGoogleSignIn = () => {
 
@@ -59,6 +61,17 @@ const Registration = () => {
                .catch(error => console.error(error));
 
      }
+
+
+     const handleUpdateUserProfile = (name) =>{
+
+          const profile = {displayName: name}
+          updateUserProfile(profile)
+          .then(()=>{})
+          .catch(error => console.error(error))
+
+     }
+
      return (
           <div>
                <div className="hero min-h-screen bg-base-200">

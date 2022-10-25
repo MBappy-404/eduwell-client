@@ -1,65 +1,19 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, verifyBeforeUpdateEmail } from "firebase/auth";
-import app from '../Firebase/FirebaseConfig'
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-export const AuthContext = createContext();
-const auth = getAuth(app);
-
-const AuthProvider = ({ children }) => {
-
-  const [user, setUser] = useState(null);
-
-  const providerLogin = (provider) => {
-    return signInWithPopup(auth, provider)
-  }
-
-  const updateUserProfile = (profile) => {
-    return updateProfile(auth.currentUser, profile)
-  }
-
-  const logOut = () => {
-    return signOut(auth)
-  }
-
-  const verifyEmail = () =>{
-    return sendEmailVerification(auth.currentUser)
-  }
-
-  const createUser = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password)
-  };
-
-  const signIn = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password)
-  }
-
-  useEffect(() => {
-
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-
-      setUser(currentUser)
-
-    });
-
-    return () => {
-      unsubscribe();
-    }
-
-  }, [])
-  const authInfo = {
-    user,
-    providerLogin,
-    logOut,
-    createUser,
-    signIn,
-    updateUserProfile,
-    verifyEmail
-  }
-  return (
-    <AuthContext.Provider value={authInfo}>
-      {children}
-    </AuthContext.Provider>
-  );
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyA77N3w7qqHIfyWG0tQh5pqCl1XcpWG5wI",
+  authDomain: "eduwell-c277e.firebaseapp.com",
+  projectId: "eduwell-c277e",
+  storageBucket: "eduwell-c277e.appspot.com",
+  messagingSenderId: "671360044336",
+  appId: "1:671360044336:web:dc20d0ab1b5be3b704ccf5"
 };
 
-export default AuthProvider;
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+export default app;

@@ -1,6 +1,8 @@
-import React from 'react';
-import { useState } from "react";
+
+import { useContext, useState } from "react";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Auth/AuthProvider';
+
 
 const Header = () => {
 
@@ -12,7 +14,7 @@ const Header = () => {
                .catch(error => console.error(error))
      }
 
-     const [navbar, setNavbar] = useState(false);
+
      return (
           <nav className="w-full bg-purple-500 shadow">
                <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
@@ -80,18 +82,35 @@ const Header = () => {
                               </ul>
 
                               <div className="mt-3 space-y-2 lg:hidden md:inline-block">
-                                   <a
-                                        href="javascript:void(0)"
-                                        className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-                                   >
-                                        Sign in
-                                   </a>
-                                   <a
-                                        href="javascript:void(0)"
-                                        className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
-                                   >
-                                        Sign up
-                                   </a>
+
+                                   {
+                                        user?.uid ?
+                                             <>
+                                                  <span className='text-black text-bold mr-3'>  {user?.displayName}</span>
+                                                  <a
+                                                       href="javascript:void(0)"
+                                                       className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+                                                  >
+                                                       <Link onClick={handleLogOut} to="/login">Log out</Link>
+                                                  </a>
+                                             </>
+                                             :
+                                             <>
+                                                  <a
+                                                       href="javascript:void(0)"
+                                                       className="px-4 py-2 m-3 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+                                                  >
+                                                       <Link to="/login">Sign in</Link>
+                                                  </a>
+                                                  <a
+                                                       href="javascript:void(0)"
+                                                       className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
+                                                  >
+                                                       <Link to="/register">  Sign up</Link>
+                                                  </a>
+                                             </>
+                                   }
+
                               </div>
                          </div>
                     </div>

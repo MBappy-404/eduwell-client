@@ -5,6 +5,8 @@ import Main from './Layout/Main';
 import Home from './components/Home/Home';
 import Courses from './components/Courses/Courses';
 import Category from './components/Category/Category';
+import Login from './components/Lgin/Login';
+import Registration from './components/Registration/Registration';
 
 function App() {
 
@@ -34,6 +36,14 @@ function App() {
           element: <Category></Category>,
           loader: ({params})=> fetch(`http://localhost:5000/category/${params.id}`),
 
+        },
+        {
+          path:'/login',
+          element: <Login></Login>
+        },
+        {
+          path: './register',
+          element: <Registration></Registration>
         }
 
       ]

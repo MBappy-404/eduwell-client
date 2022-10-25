@@ -119,23 +119,65 @@ const Header = () => {
                     <div className="hidden  space-x-2 md:inline-block">
                          <div className='flex'>
                               <div className="flex-none lg:block">
-                                   <div className="dropdown dropdown-end">
-                                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                             <div className="w-12 rounded-full">
-                                                  <img src="https://placeimg.com/80/80/people" className='mb-1' />
-                                             </div>
-                                        </label>
-                                        <ul tabIndex={0} className="menu menu-compact text-white dropdown-content mt-3 p-2 shadow bg-purple-400 rounded-box w-52">
-                                             <li>
-                                                  <a className="justify-between">
-                                                       Profile
-                                                       <span className="badge">New</span>
-                                                  </a>
-                                             </li>
-                                             <li><a>Settings</a></li>
-                                             <li><a>Logout</a></li>
-                                        </ul>
-                                   </div>
+
+                                   {
+                                        user?.uid ?
+
+                                             <>
+                                                  <div className="dropdown dropdown-end">
+                                                       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                                            <div className="w-12 rounded-full">
+                                                                 {
+                                                                      user?.photoURL ?
+                                                                           <img src={user?.photoURL} className='mb-1' />
+
+                                                                           :
+
+                                                                           // <img src="https://placeimg.com/80/80/people" className='mb-1' />
+                                                                           ''
+                                                                 }
+                                                            </div>
+                                                       </label>
+                                                       <ul tabIndex={0} className="menu menu-compact text-white dropdown-content mt-3 p-2 shadow bg-purple-400 rounded-box w-52">
+                                                            <li>
+                                                                 <a className="justify-between">
+
+
+                                                                      {
+                                                                           user?.uid ?
+                                                                                <span className='text-black text-bold mr-3'>  {user?.displayName} <br />
+
+                                                                                     {user?.email}
+
+                                                                                </span>
+
+                                                                                :
+
+                                                                                <p>Anonymous<br />
+
+                                                                                     <span>please log in</span> </p>
+
+
+                                                                      }
+
+                                                                 </a>
+                                                            </li>
+
+                                                       </ul>
+                                                  </div>
+
+
+                                             </>
+
+                                             :
+
+                                             ''
+                                   }
+
+
+
+
+
                               </div>
 
                               <div>
@@ -143,27 +185,18 @@ const Header = () => {
                                    {
                                         user?.uid ?
                                              <>
-                                                  <span className='text-black text-bold mr-3'>  {user?.displayName}</span>
-                                                  <a
-                                                       href="javascript:void(0)"
-                                                       className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-                                                  >
-                                                       <Link onClick={handleLogOut} to="/login">Log out</Link>
+
+                                                  <a>
+                                                       <Link onClick={handleLogOut} to="/login"> <button className="btn ml-3">Log out</button></Link>
                                                   </a>
                                              </>
                                              :
                                              <>
-                                                  <a
-                                                       href="javascript:void(0)"
-                                                       className="px-4 py-2 m-3 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-                                                  >
-                                                       <Link to="/login">Sign in</Link>
+                                                  <a>
+                                                       <Link to="/login"> <button className="btn btn-primary ml-3">Sign in</button></Link>
                                                   </a>
-                                                  <a
-                                                       href="javascript:void(0)"
-                                                       className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
-                                                  >
-                                                       <Link to="/register">  Sign up</Link>
+                                                  <a>
+                                                       <Link to="/register"> <button className="btn btn-primary ml-3">Sign Up</button></Link>
                                                   </a>
                                              </>
                                    }

@@ -42,7 +42,7 @@ function App() {
           element: <Login></Login>
         },
         {
-          path: './register',
+          path: '/register',
           element: <Registration></Registration>
         }
 

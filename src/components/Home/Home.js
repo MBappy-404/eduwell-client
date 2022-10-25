@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import CourseCategory from '../CourseCategory/CourseCategory';
-import hero from '../../Assets/images/about-left-image.png'
+import hero from '../../Assets/images/about-left-image.png';
 
 const Home = () => {
 
@@ -10,7 +10,7 @@ const Home = () => {
      return (
           <div>
 
-               <div className='grid grid-cols-1 self-center lg:grid-cols-2 m-auto'>
+               <div className='grid grid-cols-1 sm:grid-row-reverse self-center lg:grid-cols-2 m-auto'>
 
                     <div>
                          <img src={hero} alt="" />
@@ -20,7 +20,7 @@ const Home = () => {
                          <p className='text-3xl lg:text-6xl  lg:leading-normal'> <span className=' text-purple-900'>Best Place To </span> <br />
 
                               <span className='text-purple-900 '> Learn Programing</span>  <br />
-                              <span className='text-purple-600 '>Languages!</span>  <br />
+                              <span className='text-purple-600 '>Language!</span>  <br />
 
                          </p>
 
@@ -33,7 +33,7 @@ const Home = () => {
 
 
 
-               <div className='mt-5 mt-16'>
+               <div className=' mt-16'>
                     <p className='text-center text-purple-700 font-semibold text-5xl '>Our Courses</p>
 
 

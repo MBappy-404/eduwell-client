@@ -180,7 +180,7 @@ const Header = () => {
 
                                                                       :
 
-                                                                      <> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt-F5GQg8qB2fWquF1ltQvAT2Z8Dv5pJLb9w&usqp=CAU" className='mb-1' />
+                                                                      <> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt-F5GQg8qB2fWquF1ltQvAT2Z8Dv5pJLb9w&usqp=CAU" className='mb-1' title={user?.displayName} />
                                                                       </>
                                                                  }
                                                             </div>

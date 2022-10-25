@@ -5,13 +5,13 @@ const Blog = () => {
           <div>
 
                  
-                 <p className='text-3xl text-purple-300 text-center m-5'>BLOG POST</p>
+                 <p className='text-3xl text-purple-500 font-bold text-center m-5'>BLOG POST</p>
 
 
                <div className="flex flex-col m-10">
 
                     {/* QUESTION NO 1 */}
-                    <div className="grid card bg-purple-900 text-white shadow-2xl rounded-box p-10">
+                    <div className="grid card bg-purple-900  text-white shadow-2xl rounded-box p-10">
                          <h2 className='text-2xl text-white'>1. What is cors?</h2> <br />
                          <p>Cross-Origin Resource Sharing (CORS) is an HTTP-based security mechanism controlled and enforced by the client (web browser). It allows a service (API) to indicate any origin other than its own from which the client can request resources. It has been designed in response to the same-origin policy (SOP) that restricts how a website (HTML document or JS script) loaded by one origin can interact with a resource from another origin. CORS is used to explicitly allow some cross-origin requests while rejecting others.
                               CORS is implemented primarily in web browsers, but it can also be used in API clients as an option. It's present in all popular web browsers like Google Chrome, Firefox, Opera, and Safari. The standard has been accepted as a W3C Recommendation in January 2014. Based on that, we can assume that it is implemented in all currently available and other than listed web browsers.</p>

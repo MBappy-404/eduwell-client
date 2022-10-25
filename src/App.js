@@ -7,6 +7,9 @@ import Category from './components/Category/Category';
 import Login from './components/Lgin/Login';
 import Registration from './components/Registration/Registration';
 import Blog from './components/Blog/Blog';
+import Error from './components/ErrorPage/Error';
+import Course from './components/Course/Course';
+import LandingPage from './components/CourseLandingPage/LandingPage';
 
 function App() {
 
@@ -14,31 +17,41 @@ function App() {
     {
       path: '/',
       element: <Main></Main>,
+      errorElement: <Error></Error>,
       children: [
 
         {
           path: '/',
           element: <Home></Home>,
-          loader: ()=> fetch('http://localhost:5000/course-categories'),
+          loader: () => fetch('http://localhost:5000/course-categories'),
         },
         {
           path: '/home',
           element: <Home></Home>,
-          loader: ()=> fetch('http://localhost:5000/course-categories'),
+          loader: () => fetch('http://localhost:5000/course-categories'),
         },
         {
-          path:'/courses',
+          path: 'courses',
           element: <Courses></Courses>,
+          loader: () => fetch(`http://localhost:5000/category`),
+          children: [
+
+            {
+              path:'',
+              element:<LandingPage></LandingPage>,
+            },
+
+            {
+              path: '/courses/:name',
+              element: <Course></Course>,
+              loader: ({ params }) => fetch(`http://localhost:5000/category/${params.name}`)
+            }
+
+          ]
 
         },
         {
-          path:'/category/:id',
-          element: <Category></Category>,
-          loader: ({params})=> fetch(`http://localhost:5000/category/${params.id}`),
-
-        },
-        {
-          path:'/login',
+          path: '/login',
           element: <Login></Login>
         },
         {
@@ -46,7 +59,7 @@ function App() {
           element: <Registration></Registration>
         },
         {
-          path:'/blog',
+          path: '/blog',
           element: <Blog></Blog>
         }
 
@@ -56,7 +69,7 @@ function App() {
   return (
     <div className="">
 
-   <RouterProvider router={route}></RouterProvider>
+      <RouterProvider router={route}></RouterProvider>
     </div>
   );
 }

@@ -1,18 +1,21 @@
 import React from 'react';
 
-const ShowCategory = ({ category }) => {
+const ShowCategory = ({ data }) => {
 
-     console.log(category);
+
      return (
-          <div>
-               <figure><img src="https://placeimg.com/200/280/arch" alt="Movie" /></figure>
-                         <div className="card-body">
-                              <h2 className="card-title">New movie is released!</h2>
-                              <p>Click the button to watch on Jetflix app.</p>
-                              <div className="card-actions justify-end">
-                                   <button className="btn btn-primary">Watch</button>
-                              </div>
+          <div className='self-center m-10'>
+               <div className="card card-side   shadow-2xl">
+                    <figure><img src={data.logo} className='w-72' alt="Movie" /></figure>
+                    <div className="card-body">
+                         <h2 className="card-title">{data.name}</h2>
+                         <p>{data.description.slice(0, 200) } ......</p>
+                         <div className="card-actions mt-5 justify-end">
+                              <p>Ratings: {data.rating}</p>
+                              <button className="btn btn-primary">View Details</button>
                          </div>
+                    </div>
+               </div>
           </div>
      );
 };

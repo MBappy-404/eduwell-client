@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from './Layout/Main';
@@ -55,7 +54,7 @@ function App() {
     }
   ])
   return (
-    <div className="bg-white">
+    <div className="">
 
    <RouterProvider router={route}></RouterProvider>
     </div>

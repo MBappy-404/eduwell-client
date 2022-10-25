@@ -75,10 +75,10 @@ const Header = () => {
                                         <a href="javascript:void(0)"> <Link to="/courses">Courses</Link> </a>
                                    </li>
                                    <li className="text-white hover:text-indigo-200">
-                                        <a href="javascript:void(0)">About US</a>
+                                        <a href="javascript:void(0)">FAQ</a>
                                    </li>
                                    <li className="text-white hover:text-indigo-200">
-                                        <a href="javascript:void(0)">Contact US</a>
+                                        <a href="javascript:void(0)"> <Link to="/blog">Blog</Link> </a>
                                    </li>
                               </ul>
 

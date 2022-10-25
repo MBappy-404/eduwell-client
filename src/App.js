@@ -7,6 +7,7 @@ import Courses from './components/Courses/Courses';
 import Category from './components/Category/Category';
 import Login from './components/Lgin/Login';
 import Registration from './components/Registration/Registration';
+import Blog from './components/Blog/Blog';
 
 function App() {
 
@@ -44,13 +45,17 @@ function App() {
         {
           path: '/register',
           element: <Registration></Registration>
+        },
+        {
+          path:'/blog',
+          element: <Blog></Blog>
         }
 
       ]
     }
   ])
   return (
-    <div className="bg-dark">
+    <div className="bg-white">
 
    <RouterProvider router={route}></RouterProvider>
     </div>

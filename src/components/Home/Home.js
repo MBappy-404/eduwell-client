@@ -8,8 +8,8 @@ const Home = () => {
      // console.log(course);
      return (
           <div>
-               <div className='grid  grid-cols-2 m-5'>
-                    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+               <div className='m-5 lg:grid-cols-3 md:grid-cols-2 gap-10 sm:grid-cols-1 grid'>
+                   
 
                          {
                               courseCategory.map(category => <CourseCategory
@@ -18,7 +18,7 @@ const Home = () => {
                                    ></CourseCategory>)
                          }
 
-                    </div>
+                    
                </div>
           </div>
      );

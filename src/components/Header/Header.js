@@ -1,7 +1,16 @@
 import React from 'react';
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
+
+     const [navbar, setNavbar] = useState(false);
+     const { user, logOut } = useContext(AuthContext);
+     const handleLogOut = () => {
+          logOut()
+               .then(() => { })
+               .catch(error => console.error(error))
+     }
 
      const [navbar, setNavbar] = useState(false);
      return (
@@ -57,10 +66,10 @@ const Header = () => {
                          >
                               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                                    <li className="text-white hover:text-indigo-200">
-                                        <a href="javascript:void(0)">Home</a>
+                                        <a href="javascript:void(0)"> <Link to="/home">Home</Link> </a>
                                    </li>
                                    <li className="text-white hover:text-indigo-200">
-                                        <a href="javascript:void(0)">Blog</a>
+                                        <a href="javascript:void(0)"> <Link to="/courses">Courses</Link> </a>
                                    </li>
                                    <li className="text-white hover:text-indigo-200">
                                         <a href="javascript:void(0)">About US</a>
@@ -111,7 +120,35 @@ const Header = () => {
                               </div>
 
                               <div>
-                              <button className="btn ml-3">Log out</button>
+
+                                   {
+                                        user?.uid ?
+                                             <>
+                                                  <span className='text-black text-bold mr-3'>  {user?.displayName}</span>
+                                                  <a
+                                                       href="javascript:void(0)"
+                                                       className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+                                                  >
+                                                       <Link onClick={handleLogOut} to="/login">Log out</Link>
+                                                  </a>
+                                             </>
+                                             :
+                                             <>
+                                                  <a
+                                                       href="javascript:void(0)"
+                                                       className="px-4 py-2 m-3 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+                                                  >
+                                                       <Link to="/login">Sign in</Link>
+                                                  </a>
+                                                  <a
+                                                       href="javascript:void(0)"
+                                                       className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
+                                                  >
+                                                       <Link to="/register">  Sign up</Link>
+                                                  </a>
+                                             </>
+                                   }
+
                               </div>
                          </div>
 

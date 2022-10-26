@@ -1,18 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ShowCategory = ({ data }) => {
+     const {name,logo,description,rating} = data;
 
 
      return (
-          <div className='self-center m-10'>
-               <div className="card card-side   shadow-2xl">
-                    <figure><img src={data.logo} className='w-72' alt="Movie" /></figure>
-                    <div className="card-body">
-                         <h2 className="card-title">{data.name}</h2>
-                         <p>{data.description.slice(0, 200) } ......</p>
-                         <div className="card-actions mt-5 justify-end">
-                              <p>Ratings: {data.rating}</p>
-                              <button className="btn btn-primary">View Details</button>
+          <div className=' flex m-10 justify-center'>
+               <div className="card w-96 bg-base-100 shadow-xl">
+                    <figure className="px-10 pt-10">
+                         <img src={logo} alt="Shoes" className="rounded-xl" />
+                    </figure>
+                    <div className="card-body items-center text-center">
+                         <h2 className="card-title">{name}</h2>
+                         <p>{description.slice(0, 200)}.....</p>
+                         <div className="card-actions flex self-center justify-between">
+                              <p>Rating : {rating}</p>
+                              <button className="btn btn-primary ml-5 btn-sm">View Details</button>
                          </div>
                     </div>
                </div>

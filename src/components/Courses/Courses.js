@@ -13,7 +13,7 @@ const Courses = () => {
 
      return (
           <div className=' course-container'>
-               <Category category={category} ></Category>
+               <Category  category={category} ></Category>
                <Outlet></Outlet>
               
           

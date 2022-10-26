@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Auth/AuthProvider';
 import logo from '../../Assets/images/logo.png';
+import Category from "../Category/Category";
 
 
 const Header = () => {
@@ -242,6 +243,12 @@ const Header = () => {
                                                   </a>
                                              </>
                                    }
+
+                              </div>
+
+                              <div className="hidden sm:block">
+
+                                    
 
                               </div>
                          </div>

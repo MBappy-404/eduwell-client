@@ -4,19 +4,15 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { FaStar,FaUserCheck } from "react-icons/fa";
 
-
-
 const ShowDetails = ({ details }) => {
 
      const { description, logo, rating, enrolled, name } = details;
      const MySwal = withReactContent(Swal);
-     
-
 
      const handleCheckOut = () => {
 
           MySwal.fire({
-               title: `${name}-Enrolled Successfully`,
+               title: `${name}-Enroll Successfully`,
                text: 'We send course access as soon as possible.',
                icon: 'success',
                confirmButtonText: 'Ok'
@@ -24,8 +20,6 @@ const ShowDetails = ({ details }) => {
 
 
      }
-
-
      return (
           <div>
 
@@ -53,11 +47,12 @@ const ShowDetails = ({ details }) => {
 
                                    <div className="modal-action">
                                         {/* The button to open modal */}
-                                        <label htmlFor="my-modal-6" onClick={handleCheckOut} className="btn">
-                                             <Link to='/home'>Purches</Link>
-                                        </label>
+                                        
                                         <label htmlFor="my-modal-6" className="btn">
                                           not now
+                                        </label>
+                                        <label htmlFor="my-modal-6" onClick={handleCheckOut} className="btn">
+                                             <Link to='/home'>Purchase</Link>
                                         </label>
                                        
                                    </div>

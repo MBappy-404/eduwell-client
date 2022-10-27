@@ -108,7 +108,7 @@ const Registration = () => {
                                    <form onSubmit={handleSubmit}>
                                         <div className="form-control">
                                              <label className="label">
-                                                  <span className="label-text">Email</span>
+                                                  <span className="label-text">Name</span>
                                              </label>
                                              <input type="text" name='username' placeholder="username" className="input input-bordered" />
                                         </div>
@@ -130,7 +130,7 @@ const Registration = () => {
                                         </div>
                                         <p className='text-warning'>{error}</p>
                                         <div className="form-control mt-6">
-                                             <button className="btn btn-primary">Login</button>
+                                             <button className="btn btn-primary">Register</button>
                                         </div>
                                         <h1 className='text-xl text-center text-purple-700 font-semibold mt-3'>Sign In With</h1>
                                         <div className=" flex justify-between mt-6">

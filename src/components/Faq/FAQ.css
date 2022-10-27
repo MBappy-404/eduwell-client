@@ -1,0 +1,23 @@
+.faq-hero {
+     width: 400px;
+     animation: UpDown 3s linear infinite;
+     position: relative;
+     font-size: 4em;
+     cursor: pointer;
+     color: #715c3f;
+
+}
+
+@keyframes UpDown {
+     0% {
+          bottom: 0;
+     }
+
+     50% {
+          bottom: .5em;
+     }
+
+     100% {
+          bottom: 0;
+     }
+}

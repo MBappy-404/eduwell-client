@@ -11,6 +11,10 @@ import Course from './components/Course/Course';
 import LandingPage from './components/CourseLandingPage/LandingPage';
 import CourseDetails from './components/CourseDetails/CourseDetails';
 import PrivateRoute from './Private/PrivateRoute';
+import FAQ from './components/Faq/FAQ';
+ 
+
+
 
 function App() {
 
@@ -68,7 +72,13 @@ function App() {
         {
           path: '/blog',
           element: <Blog></Blog>
+        },
+        {
+          path: '/faq',
+          element: <FAQ></FAQ>
+
         }
+        
 
       ]
     }

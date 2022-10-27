@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Auth/AuthProvider';
 import logo from '../../Assets/images/logo.png';
-import Category from "../Category/Category";
+
 
 
 const Header = () => {
@@ -85,7 +85,7 @@ const Header = () => {
                                         <a href="javascript:void(0)"> <Link to="/courses">Courses</Link> </a>
                                    </li>
                                    <li className="text-white hover:text-indigo-200">
-                                        <a href="javascript:void(0)">FAQ</a>
+                                        <a href="javascript:void(0)"> <Link to='/faq'>FAQ</Link> </a>
                                    </li>
                                    <li className="text-white hover:text-indigo-200">
                                         <a href="javascript:void(0)"> <Link to="/blog">Blog</Link> </a>
@@ -118,7 +118,7 @@ const Header = () => {
                                                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                                             <div className="w-12 rounded-full">
                                                                  {user?.photoURL ?
-                                                                      <><img src={user?.photoURL} title={user.displayName} className='' /></>
+                                                                      <><img src={user?.photoURL} title={user?.displayName} className='' /></>
 
                                                                       :
 
@@ -161,7 +161,7 @@ const Header = () => {
                                                        <Link to="/login">Sign in</Link>
                                                   </a>
                                                   <a href="javascript:void(0)"
-                                                   className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100">
+                                                       className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100">
                                                        <Link to="/register">  Sign up</Link>
                                                   </a>
                                              </>
@@ -199,7 +199,7 @@ const Header = () => {
                                                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                                             <div className="w-12 rounded-full">
                                                                  {user?.photoURL ?
-                                                                      <><img src={user?.photoURL} title={user.displayName} className='mb-1' /></>
+                                                                      <><img src={user?.photoURL} title={user?.displayName} className='mb-1' /></>
 
                                                                       :
 
@@ -211,14 +211,10 @@ const Header = () => {
                                                        <ul tabIndex={0} className="menu menu-compact text-white dropdown-content mt-3 p-2 shadow bg-purple-400 rounded-box w-64">
                                                             <li>
                                                                  <a className="justify-between">
-
-
                                                                       {
                                                                            user?.uid ?
                                                                                 <span className='text-black text-bold mr-3'>  {user?.displayName} <br />
-
                                                                                      {user?.email}
-
                                                                                 </span>
 
                                                                                 :
@@ -262,7 +258,7 @@ const Header = () => {
                          </div>
                     </div>
                </div>
-               
+
           </nav>
      );
 };

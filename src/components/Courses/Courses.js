@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Link, Outlet, useLoaderData } from 'react-router-dom';
+
+import { Outlet, useLoaderData } from 'react-router-dom';
 import Category from '../Category/Category';
 // import CourseDetails from '../CourseDetails/CourseDetails';
 

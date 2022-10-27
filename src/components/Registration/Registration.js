@@ -1,16 +1,18 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Auth/AuthProvider';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
+
 const Registration = () => {
-     const { createUser, providerLogin, updateUserProfile } = useContext(AuthContext);
+     const { createUser, providerLogin, updateUserProfile,githubLogin } = useContext(AuthContext);
      const navigate = useNavigate();
      const [error, setError] = useState([]);
      const MySwal = withReactContent(Swal);
      const googleProvider = new GoogleAuthProvider();
+     const githubProvider = new GithubAuthProvider();
 
      const handleSubmit = (e) => {
           e.preventDefault();
@@ -64,6 +66,24 @@ const Registration = () => {
 
      }
 
+     const handleGitSignIn = () =>{
+
+          githubLogin(githubProvider)
+          .then(result => {
+               const user = result.user;
+               console.log(user);
+               navigate('/home');
+               MySwal.fire({
+                    title: 'Registration Success',
+                    text: '',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+               });
+          })
+          .catch(error => console.error(error));          
+
+     }
+
      const handleUpdateUserProfile = (name) => {
           const profile = { displayName: name }
           updateUserProfile(profile)
@@ -112,8 +132,14 @@ const Registration = () => {
                                         <div className="form-control mt-6">
                                              <button className="btn btn-primary">Login</button>
                                         </div>
-                                        <div className="form-control mt-6">
-                                             <button onClick={handleGoogleSignIn} className="btn btn-primary">Login with Google</button>
+                                        <h1 className='text-xl text-center text-purple-700 font-semibold mt-3'>Sign In With</h1>
+                                        <div className=" flex justify-between mt-6">
+                                             <button onClick={handleGoogleSignIn} className="btn w30 btn-primary">
+                                                  <img src="https://freesvg.org/img/1534129544.png" className='w-6 mr-3' alt="" />
+                                                    Google</button>
+                                             <button onClick={handleGitSignIn} className="btn w30 btn-primary"> 
+                                              <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" className='w-7 mr-3' alt="" />
+                                              Github</button>
                                         </div>
                                    </form>
 

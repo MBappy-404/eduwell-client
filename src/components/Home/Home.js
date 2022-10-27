@@ -32,7 +32,7 @@ const Home = () => {
                   
                   {/* COURSE SECTION  */}
                   
-               <div className=' mt-16'>
+               <div className=' mt-16 container mb-16 m-auto'>
                     <p className='text-center text-purple-700 font-semibold text-5xl '>Our Courses</p>
 
 

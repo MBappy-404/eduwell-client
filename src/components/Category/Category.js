@@ -5,7 +5,7 @@ const Category = ({ category }) => {
      return (
           <div className='grid grid-cols-1  '>
                <div className=' flexible bg-purple-500 w-36 lg:w-full p-5 hidden lg:block  shadow-black '>
-                    <h2 className='text-center lg:text-2xl mt-10 font-semibold text-purple-100 my-2'>Course Name</h2>
+                    <h2 className='text-center lg:text-2xl mr-0 lg:mr-10 mt-10 font-semibold text-purple-100 my-2'>Course Name</h2>
                     {
                          category.map(category => <button key={category.id}
                               className='btn btn-outline font-semibold w-16  text-xs lg:w-40 col-span-1 mx-4 mt-5 my-2'>

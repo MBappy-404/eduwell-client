@@ -10,6 +10,7 @@ import Error from './components/ErrorPage/Error';
 import Course from './components/Course/Course';
 import LandingPage from './components/CourseLandingPage/LandingPage';
 import CourseDetails from './components/CourseDetails/CourseDetails';
+import PrivateRoute from './Private/PrivateRoute';
 
 function App() {
 
@@ -23,34 +24,34 @@ function App() {
         {
           path: '/',
           element: <Home></Home>,
-          loader: () => fetch('http://localhost:5000/course-categories'),
+          loader: () => fetch('https://edu-well-server.vercel.app/course-categories'),
         },
         {
           path: '/home',
           element: <Home></Home>,
-          loader: () => fetch('http://localhost:5000/course-categories'),
+          loader: () => fetch('https://edu-well-server.vercel.app/course-categories'),
         },
-      
+
         {
           path: 'courses',
           element: <Courses></Courses>,
-          loader: () => fetch(`http://localhost:5000/category`),
+          loader: () => fetch(`https://edu-well-server.vercel.app/category`),
           children: [
 
             {
-              path:'',
-              element:<LandingPage></LandingPage>,
+              path: '',
+              element: <LandingPage></LandingPage>,
             },
-      
+
             {
               path: '/courses/:id',
               element: <Course></Course>,
-              loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+              loader: ({ params }) => fetch(`https://edu-well-server.vercel.app/category/${params.id}`)
             },
             {
-              path:'/courses/details/:id',
-              loader: ({ params }) => fetch(`http://localhost:5000/category/details/${params.id}`),
-              element: <CourseDetails></CourseDetails>,
+              path: '/courses/singleItem/:id',
+              loader: ({ params }) => fetch(`https://edu-well-server.vercel.app/course-details/${params.id}`),
+              element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute> ,
             },
 
           ]

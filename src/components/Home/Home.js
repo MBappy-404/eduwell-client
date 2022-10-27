@@ -10,6 +10,8 @@ const Home = () => {
      return (
           <div>
 
+               {/* HERO SECTION  */}
+
                <div className='grid grid-cols-1 sm:grid-row-reverse self-center lg:grid-cols-2 m-auto'>
 
                     <div>
@@ -27,20 +29,14 @@ const Home = () => {
                     </div>
 
                </div>
-
-
-
-
-
-
+                  
+                  {/* COURSE SECTION  */}
+                  
                <div className=' mt-16'>
                     <p className='text-center text-purple-700 font-semibold text-5xl '>Our Courses</p>
 
 
                     <div className='m-5  lg:grid-cols-3 md:grid-cols-2 gap-10 sm:grid-cols-1 grid'>
-
-
-
 
                          {
                               courseCategory.map(category => <CourseCategory

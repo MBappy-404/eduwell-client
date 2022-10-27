@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 const Registration = () => {
-     const { createUser,providerLogin,updateUserProfile } = useContext(AuthContext);
+     const { createUser, providerLogin, updateUserProfile } = useContext(AuthContext);
      const navigate = useNavigate();
      const [error, setError] = useState([]);
      const MySwal = withReactContent(Swal);
@@ -15,15 +15,14 @@ const Registration = () => {
      const handleSubmit = (e) => {
           e.preventDefault();
           const form = e.target;
-           const name = form.username.value;
+          const name = form.username.value;
           const email = form.email.value;
           const password = form.password.value;
 
           // console.log(name,email,password);
-          if(password.length < 8 ){
+          if (password.length < 8) {
                return setError('Password must be 8 character')
-           }
-
+          }
 
           createUser(email, password)
                .then(result => {
@@ -37,7 +36,7 @@ const Registration = () => {
                          text: '',
                          icon: 'success',
                          confirmButtonText: 'Ok'
-                       });
+                    });
                     navigate('/home')
 
                })
@@ -48,27 +47,28 @@ const Registration = () => {
                })
      };
 
-   
-
      const handleGoogleSignIn = () => {
-
           providerLogin(googleProvider)
                .then(result => {
                     const user = result.user;
                     console.log(user);
-                    navigate('/home')
+                    navigate('/home');
+                    MySwal.fire({
+                         title: 'Registration Success',
+                         text: '',
+                         icon: 'success',
+                         confirmButtonText: 'Ok'
+                    });
                })
                .catch(error => console.error(error));
 
      }
 
-
-     const handleUpdateUserProfile = (name) =>{
-
-          const profile = {displayName: name}
+     const handleUpdateUserProfile = (name) => {
+          const profile = { displayName: name }
           updateUserProfile(profile)
-          .then(()=>{})
-          .catch(error => console.error(error))
+               .then(() => { })
+               .catch(error => console.error(error))
 
      }
 
@@ -77,12 +77,12 @@ const Registration = () => {
                <div className="hero min-h-screen bg-base-200">
                     <div className="hero-content flex-col lg:flex-row-reverse">
                          <div className="text-center lg:text-left">
-                              
+
                               <img src="https://nilgiricollege.ac.in/app/app-files/images/userlog.png" className='w-full lg:w-full' alt="" />
                          </div>
                          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
-                         <h1 className="text-3xl mt-3 text-center font-bold">Register now!</h1>
+                              <h1 className="text-3xl mt-3 text-center font-bold">Register now!</h1>
                               <div className="card-body">
 
                                    <form onSubmit={handleSubmit}>
@@ -90,7 +90,7 @@ const Registration = () => {
                                              <label className="label">
                                                   <span className="label-text">Email</span>
                                              </label>
-                                             <input type="text" name='username' placeholder="username" className="input input-bordered"  />
+                                             <input type="text" name='username' placeholder="username" className="input input-bordered" />
                                         </div>
                                         <div className="form-control">
                                              <label className="label">

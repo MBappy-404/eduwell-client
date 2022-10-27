@@ -33,8 +33,6 @@ const Login = () => {
                          confirmButtonText: 'Ok'
                     });
                     navigate('/home');
-
-
                })
 
                .catch(error => {

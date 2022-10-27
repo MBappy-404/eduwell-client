@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CourseCategory = ({ category }) => {
-     // console.log(category);
+     console.log(category);
      const { name, logo, enrolled } = category;
      return (
           <div>
@@ -12,7 +12,7 @@ const CourseCategory = ({ category }) => {
                          <h2 className="card-title">{name}</h2>
                          <div className="flex  justify-start">
                               <p className='mt-2'>Enrolled: {enrolled}</p>
-                              <button className="btn btn-sm btn-primary"> <Link to='/courses'>See Course</Link> </button>
+                              <button className="btn btn-sm btn-primary"> <Link to={`/courses/${category.id}`}>See Course</Link> </button>
                          </div>
                     </div>
                </div>

@@ -16,14 +16,21 @@ const Header = () => {
                .catch(error => console.error(error))
      }
 
-
-
      return (
+
+
+
+          /*********
+            HEADER
+          *********/
+
           <nav className="w-full bg-purple-500 shadow">
                <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                     <div>
                          <div className="flex items-center justify-between py-3 md:py-5 md:block">
                               <a href="javascript:void(0)">
+
+                                   {/* LOGO  */}
                                    <img src={logo} alt="" />
                               </a>
                               <div className="md:hidden">
@@ -67,8 +74,9 @@ const Header = () => {
                     <div>
                          <div
                               className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"
-                                   }`}
-                         >
+                                   }`}>
+
+                              {/* MENU  */}
                               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                                    <li className="text-white hover:text-indigo-200">
                                         <a href="javascript:void(0)"> <Link to="/home">Home</Link> </a>
@@ -84,15 +92,11 @@ const Header = () => {
                                    </li>
                               </ul>
 
+                              {/* MOBILE DEVICE MENU BAR */}
+                              <div className="mt-5 m-5 space-y-5 flex self-center lg:hidden md:inline-block">
 
-
-
-
-                              <div className="mt-3 m-5 space-y-2 lg:hidden md:inline-block">
-
-
-
-                                   <label className="swap   swap-rotate">
+                                   {/* DARK LIGHT SWAP  */}
+                                   <label className="swap  mt-4  swap-rotate">
 
                                         {/* <!-- this hidden checkbox controls the state --> */}
                                         <input type="checkbox" />
@@ -109,26 +113,55 @@ const Header = () => {
                                    {
                                         user?.uid ?
                                              <>
-                                                  <span className='text-black text-bold mr-3'>  {user?.displayName}</span>
-                                                  <a
-                                                       href="javascript:void(0)"
-                                                       className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-                                                  >
-                                                       <Link onClick={handleLogOut} to="/login">Log out</Link>
+                                                  {/* IMAGE DROPDOWN  MOBILE DEVICE */}
+                                                  <div className="dropdown m-5 dropdown-start">
+                                                       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                                            <div className="w-12 rounded-full">
+                                                                 {user?.photoURL ?
+                                                                      <><img src={user?.photoURL} title={user.displayName} className='' /></>
+
+                                                                      :
+
+                                                                      <> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt-F5GQg8qB2fWquF1ltQvAT2Z8Dv5pJLb9w&usqp=CAU" className='mb-1' title={user?.displayName} />
+                                                                      </>
+                                                                 }
+                                                            </div>
+                                                       </label>
+                                                       <ul tabIndex={0} className="menu menu-compact text-white dropdown-content mt-3  shadow bg-purple-400 rounded-box w-52">
+                                                            <li>
+                                                                 <a className="justify-between">
+                                                                      {
+                                                                           user?.uid ?
+                                                                                <span className='text-black text-bold mr-3'>  {user?.displayName} <br />
+
+                                                                                     {user?.email}
+
+                                                                                </span>
+
+                                                                                :
+
+                                                                                ' '
+                                                                      }
+
+                                                                 </a>
+                                                            </li>
+
+                                                       </ul>
+                                                  </div>
+
+                                                  <a>
+                                                       <Link onClick={handleLogOut} to="/login"> <button className="btn btn-dark">Log out</button> </Link>
                                                   </a>
                                              </>
                                              :
                                              <>
                                                   <a
                                                        href="javascript:void(0)"
-                                                       className="px-4 py-2 m-3 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-                                                  >
+                                                       className="px-4 py-2 m-3 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800">
                                                        <Link to="/login">Sign in</Link>
                                                   </a>
-                                                  <a
-                                                       href="javascript:void(0)"
-                                                       className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
-                                                  >
+                                                  <a href="javascript:void(0)"
+                                                   className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100">
                                                        <Link to="/register">  Sign up</Link>
                                                   </a>
                                              </>
@@ -139,19 +172,11 @@ const Header = () => {
                     </div>
 
 
-
-
-
-
-
+                    {/* MENU DEKSTOP */}
 
                     <div className="hidden  space-x-2 md:inline-block">
                          <div className='flex'>
                               <div className="flex-none lg:block">
-
-
-
-
 
                                    <label className="swap swap-rotate mr-5">
 
@@ -166,13 +191,10 @@ const Header = () => {
 
                                    </label>
 
-
-
-
                                    {
                                         user?.uid ?
-
                                              <>
+                                                  {/* IMAGE DROP DOWN DEKSTOP  */}
                                                   <div className="dropdown dropdown-end">
                                                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                                             <div className="w-12 rounded-full">
@@ -200,26 +222,19 @@ const Header = () => {
                                                                                 </span>
 
                                                                                 :
+
                                                                                 ' '
                                                                       }
-
                                                                  </a>
                                                             </li>
-
                                                        </ul>
                                                   </div>
-
-
                                              </>
 
                                              :
 
                                              ''
                                    }
-
-
-
-
 
                               </div>
 
@@ -243,19 +258,11 @@ const Header = () => {
                                                   </a>
                                              </>
                                    }
-
-                              </div>
-
-                              <div className="hidden sm:block">
-
-                                    
-
                               </div>
                          </div>
-
-
                     </div>
                </div>
+               
           </nav>
      );
 };

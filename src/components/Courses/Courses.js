@@ -8,7 +8,7 @@ import './courses.css'
 const Courses = () => {
 
      const category = useLoaderData()
-     console.log(category);
+     // console.log(category);
 
 
      return (
